@@ -13,11 +13,12 @@ namespace surface
 {
 	public partial class Start : Form
 	{
-		double height = 0;
-		double width = 0;
-		int quantity = 0;
+		private double height = 0;
+		private double width = 0;
+		private int quantity = 0;
 		private Dictionary<int, double[]> dict = new Dictionary<int, double[]> ();
-		double areaOfPieces = 0;
+		private double areaOfPieces = 0;
+		
 
 		public Start()
 		{
@@ -32,31 +33,56 @@ namespace surface
 		private void button1_Click(object sender, EventArgs e)
 		{
 			Surface surf = new Surface();
-			surf.Height = height;
-			surf.Width = width;
+			surf.ContainerHeight = height;
+			surf.ContainerWidth = width;
 
 			for(int i = 0; i < quantity; i++)
 			{
 				Rectangle f = new Rectangle(i + 1); // створюємо об’єкт типу Rectangle				
 				f.ShowDialog();
-				dict.Add(i+1, f.MyMas);
+				dict.Add(i+1, f.MyMass);
 			}
 
 			foreach(KeyValuePair<int, double[]> keyValue in dict)
-			{	
-
-				if((keyValue.Value[0] > surf.Height) || (keyValue.Value[0] > surf.Width) || (keyValue.Value[1] > surf.Height) || (keyValue.Value[1] > surf.Width))
+			{
+				if(((keyValue.Value[0] > surf.ContainerHeight) && (keyValue.Value[0] > surf.ContainerWidth)) || ((keyValue.Value[1] > surf.ContainerHeight) && (keyValue.Value[1] > surf.ContainerWidth)))
 				{
 					MessageBox.Show(String.Format("One side of the rectangle № {0} is too large !", keyValue.Key.ToString()));
+					dict.Clear();
+					return ;
 				}
-				areaOfPieces += keyValue.Value[2];				
+				areaOfPieces += keyValue.Value[2];	
 			}	
 
 			if (areaOfPieces > surf.MainSquare)
 			{
 				MessageBox.Show("The area of the pieces is larger than the surface area !");
+				dict.Clear();
+				return ;
 			}
-		}
+
+			for (int i = 0; i < Math.Pow(2, quantity); i++)
+			{
+				MyBoxes.Clear();
+
+				string str = Convert.ToString(i, 2).PadLeft(quantity, '0');				
+
+				for (int j = 0; j < quantity; j++)
+				{
+					MyBoxes.Add(new Surface { Height = dict[j + 1][0], Width = dict[j + 1][1] });
+					
+					if (str[j] == '1')
+					{
+						double width = MyBoxes[j].Width;
+						MyBoxes[j].Width = MyBoxes[j].Height;
+						MyBoxes[j].Height = width;						
+					}				
+				}			
+				
+				Packer packer = new Packer(MyBoxes, surf.ContainerHeight, surf.ContainerWidth);
+			}
+
+			}
 
 		private void Run(Rectangle rectangle)
 		{
@@ -109,6 +135,9 @@ namespace surface
 				quantityField.Text = quantity.ToString();
 			}
 			
-		}		
+		}
+
+		public List<Surface> MyBoxes { get; set; } = new List<Surface>();
+
 	}
 }

@@ -37,9 +37,9 @@ namespace surface
 			sqr.Height = height;
 			sqr.Width = width;
 			
-			MyMas[0] = sqr.Height;
-			MyMas[1] = sqr.Width;
-			MyMas[2] = sqr.MainSquare;
+			MyMass[0] = sqr.Height;
+			MyMass[1] = sqr.Width;
+			MyMass[2] = sqr.Height * sqr.Width;
 			Close();
 		}
 
@@ -71,7 +71,7 @@ namespace surface
 			}
 		}
 
-		public double[] MyMas 
+		public double[] MyMass
 			{
 			get 
 				{
