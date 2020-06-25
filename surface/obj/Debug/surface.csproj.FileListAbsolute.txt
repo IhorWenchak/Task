@@ -22,6 +22,7 @@ E:\Task\surface\obj\Debug\surface.pdb
 E:\MyTask\surface\bin\Debug\surface.exe.config
 E:\MyTask\surface\bin\Debug\surface.exe
 E:\MyTask\surface\bin\Debug\surface.pdb
+E:\MyTask\surface\obj\Debug\surface.csprojAssemblyReference.cache
 E:\MyTask\surface\obj\Debug\surface.Properties.Resources.resources
 E:\MyTask\surface\obj\Debug\surface.Rectangle.resources
 E:\MyTask\surface\obj\Debug\surface.Result.resources
