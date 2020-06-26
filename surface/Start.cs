@@ -18,7 +18,11 @@ namespace surface
 		private int quantity = 0;
 		private Dictionary<int, double[]> dict = new Dictionary<int, double[]> ();
 		private double areaOfPieces = 0;
+		private string resultStr = String.Empty;
+		Packer packer;
 		
+
+
 
 		public Start()
 		{
@@ -79,9 +83,11 @@ namespace surface
 					}				
 				}			
 				
-				Packer packer = new Packer(MyBoxes, surf.ContainerHeight, surf.ContainerWidth);
+				packer = new Packer(MyBoxes, surf.ContainerHeight, surf.ContainerWidth);
+				resultStr += packer.TextResult;
 			}
-
+			Result result = new Result(resultStr);
+			result.Show();
 			}
 
 		private void Run(Rectangle rectangle)

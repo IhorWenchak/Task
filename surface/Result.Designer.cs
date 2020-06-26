@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.label1 = new System.Windows.Forms.Label();
-			this.labelResult = new System.Windows.Forms.Label();
+			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -43,23 +43,22 @@
 			this.label1.Text = "You can place the rectangles as follows:";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// labelResult
+			// richTextBox1
 			// 
-			this.labelResult.AutoSize = true;
-			this.labelResult.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.labelResult.Location = new System.Drawing.Point(122, 60);
-			this.labelResult.Name = "labelResult";
-			this.labelResult.Size = new System.Drawing.Size(59, 22);
-			this.labelResult.TabIndex = 2;
-			this.labelResult.Text = "label2";
+			this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.richTextBox1.Location = new System.Drawing.Point(33, 73);
+			this.richTextBox1.Name = "richTextBox1";
+			this.richTextBox1.Size = new System.Drawing.Size(490, 257);
+			this.richTextBox1.TabIndex = 2;
+			this.richTextBox1.Text = "";
 			// 
 			// Result
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-			this.ClientSize = new System.Drawing.Size(556, 242);
-			this.Controls.Add(this.labelResult);
+			this.ClientSize = new System.Drawing.Size(556, 354);
+			this.Controls.Add(this.richTextBox1);
 			this.Controls.Add(this.label1);
 			this.Name = "Result";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -71,6 +70,6 @@
 
 		#endregion
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label labelResult;
+		private System.Windows.Forms.RichTextBox richTextBox1;
 	}
 }

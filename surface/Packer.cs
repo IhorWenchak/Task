@@ -18,7 +18,7 @@ namespace surface
 		private Node rootNode;
 		private int _counter = 0;
 		string output = String.Empty;
-	
+
 		public Packer(List<Surface> boxes, double containerHeight, double containerWidth)
 		{
 
@@ -38,8 +38,10 @@ namespace surface
 
 				Filter();
 
-				Display();			
+				Display();
 		}
+
+
 
 		private void Display()
 		{
@@ -53,11 +55,11 @@ namespace surface
 
 					output += String.Format("Pos. X: {0} Pos. Y: {1}  Height: {2} Width: {3} {4}", positionx, positiony, box.Height, box.Width, "\n");
 				}
-
-				Result result = new Result(output);
-				result.Show();
+				TextResult  += output;
+				TextResult += "\n";
 			}
 	}
+		
 
 		private void Pack()
 		{
@@ -119,6 +121,7 @@ namespace surface
 			}
 			
 		}
-
+		public string TextResult { get; set; }
 	}
+	
 }

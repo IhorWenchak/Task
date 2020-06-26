@@ -15,10 +15,8 @@ namespace surface
 		
 		public Result(string res)
 		{
-			InitializeComponent();
-			labelResult.Text = res;
-		}
-
-	
+			InitializeComponent();	
+			richTextBox1.Text = res;
+		}	
 	}
 }
